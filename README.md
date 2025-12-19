@@ -85,11 +85,12 @@ Deep Learning Model
 
 [Back to Table of Contents](#back-to-table-of-contents)
 
-모델의 성능은 정확도를 기준으로 비교하였습니니다.
+모델의 성능은 정확도를 기준으로 비교하였습니다.
 
-모델	정확도
-Logistic Regression	약 83%
-PyTorch MLP	약 86%
+| Model | Accuracy |
+|------|----------|
+| Logistic Regression | ~83% |
+| PyTorch MLP | ~86% |
 
 실험 결과, MLP 모델이 기준 모델보다 더 높은 정확도를 보였습니다.
 이는 텍스트 데이터의 비선형적인 특성을 신경망이 효과적으로 학습했기 때문으로 해석할 수 있습니다.
@@ -104,6 +105,7 @@ PyTorch MLP	약 86%
 
 [Back to Table of Contents](#back-to-table-of-contents)
 
+```bash
 .
 ├── preprocess.py   # 텍스트 전처리 및 벡터화
 ├── model.py        # PyTorch MLP 모델 정의
@@ -111,6 +113,7 @@ PyTorch MLP	약 86%
 ├── README.md
 └── data/
     └── nsmc_sample.csv
+```
 
 ## 7. Conclusion
 
