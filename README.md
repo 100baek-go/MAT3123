@@ -124,7 +124,7 @@ PyTorch MLP	약 86%
 
 [Back to Table of Contents](#back-to-table-of-contents)
 
-bash
+    ```bash
     .
     ├── preprocess.py   # 텍스트 전처리 및 벡터화
     ├── model.py        # PyTorch MLP 모델 정의
@@ -132,6 +132,7 @@ bash
     ├── README.md
     └── data/
         └── nsmc_sample.csv
+    ```
 
 ## 7. Conclusion
 
