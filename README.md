@@ -37,6 +37,7 @@ NSMC 데이터를 활용한 PyTorch 기반 감성 분류 시스템
 데이터의 주요 특징은 다음과 같습다.
 - 약 20만 개의 한국어 영화 리뷰
 - 각 리뷰는 감성 레이블을 가짐
+
   1: 긍정 리뷰
   0: 부정 리뷰
 
@@ -73,6 +74,7 @@ Baseline Model
 Deep Learning Model
 - PyTorch 기반 다층 퍼셉트론(MLP)
 - 모델 구조는 다음과 같다.
+
   입력층: TF-IDF 특징 벡터
   은닉층: ReLU 활성화 함수
   출력층: 2개 클래스(긍정 / 부정)
@@ -100,7 +102,7 @@ PyTorch MLP	약 86%
 
 ## 6. Project Structure
 
-Back to Table of Contents
+[Back to Table of Contents](#back-to-table-of-contents)
 
 .
 ├── preprocess.py   # 텍스트 전처리 및 벡터화
@@ -110,20 +112,19 @@ Back to Table of Contents
 └── data/
     └── nsmc_sample.csv
 
-Conclusion
+## 7. Conclusion
 
-Back to Table of Contents
+[Back to Table of Contents](#back-to-table-of-contents)
 
-본 프로젝트를 통해 다음과 같은 점을 학습할 수 있었다.
+본 프로젝트를 통해 다음과 같은 점을 학습할 수 있었습니다.
 
 텍스트 데이터 전처리 과정의 중요성
-
 기준 모델과 신경망 모델의 성능 차이
-
 머신러닝 프로젝트의 전체 흐름에 대한 이해
 
 이를 통해 수업에서 배운 이론과
-실제 데이터 분석 문제 사이의 연결성을 명확히 확인할 수 있었다.
+실제 데이터 분석 문제 사이의 연결성을 명확히 확인할 수 있었습니다.
+
 ## 8. Technologies Used
 
 [Back to Table of Contents](#back-to-table-of-contents)
