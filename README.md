@@ -35,7 +35,6 @@ NSMC 데이터를 활용한 PyTorch 기반 감성 분류 시스템
 본 프로젝트에서는 **네이버 영화 리뷰 감성 데이터(NSMC)**를 사용하였습니다.
 
 데이터의 주요 특징은 다음과 같습다.
-
 - 약 20만 개의 한국어 영화 리뷰
 - 각 리뷰는 감성 레이블을 가짐
       1: 긍정 리뷰
@@ -48,82 +47,13 @@ Note: 데이터 크기 문제로 인해 GitHub에는 소량의 샘플 데이터�
 
 ## 3. Preprocessing
 
-[Back to Table of Contents](#back-to-table-of-contents)
-
-텍스트 데이터를 모델에 입력하기 위해 다음과 같은 전처리 과정을 수행하였습다.
-
-1. Pandas를 이용한 데이터 로드
-2. 결측치 제거
-3. TF-IDF 벡터화를 통한 텍스트의 수치화
-4. 어휘 수 제한을 통한 차원 축소
-
-이를 통해 자연어 형태의 리뷰 데이터를
-머신러닝 및 딥러닝 모델에서 처리 가능한 입력 형태로 변환하였습다.
-
-## 4. Model
-
-[Back to Table of Contents](#back-to-table-of-contents)
-
-본 프로젝트에서는 두 가지 모델을 사용하여 성능을 비교하였습다.
-
-Baseline Model
-    Logistic Regression
-    텍스트 분류 문제에서의 기본적인 기준 모델로 사용
-    이후 딥러닝 모델과의 성능 비교를 위한 기준선 역할
-
-Deep Learning Model
-    PyTorch 기반 다층 퍼셉트론(MLP)
-    
-    모델 구조는 다음과 같습니다.
-
-    입력층: TF-IDF 특징 벡터
-    은닉층: ReLU 활성화 함수
-    출력층: 2개 클래스(긍정 / 부정)
-
-해당 모델은 수업에서 다룬 신경망 개념을 반영하여 설계되었습니다.
-
-## 5. Performance
-
-[Back to Table of Contents](#back-to-table-of-contents)
-
-모델의 성능은 정확도를 기준으로 비교하였습니다.
-
-| Model | Accuracy |
-|------|----------|
-| Logistic Regression | ~83% |
-| PyTorch MLP | ~86% |
-
-실험 결과, MLP 모델이 기준 모델보다 더 높은 정확도를 보였습니다.
-이는 텍스트 데이터의 비선형적인 특성을 신경망이 효과적으로 학습했기 때문으로 해석할 수 있습니다.
-
-또한 Confusion Matrix 분석을 통해
-약한 부정 표현이 포함된 리뷰에서 오분류가 상대적으로 많이 발생함을 확인하였습니다.
-
-본 프로젝트는 정량적 성능 향상뿐만 아니라
-모델 간 특성 차이를 이해하는 데 의의를 둡니다.
-
-## 6. Project Structure
-
-[Back to Table of Contents](#back-to-table-of-contents)
-
-```bash
-.
-├── preprocess.py   # 텍스트 전처리 및 벡터화
-├── model.py        # PyTorch MLP 모델 정의
-├── train.py        # 모델 학습 파이프라인
-├── README.md
-└── data/
-    └── nsmc_sample.csv
-```
-
-## 7. Conclusion
-
-[Back to Table of Contents](#back-to-table-of-contents)
-
-본 프로젝트를 통해 다음과 같은 점을 학습할 수 본 프로젝트를 통해 다음과 같은 점을 학습할 수 있었습다.델과텍스트 데이터 전처리 과정의 중요성닝 프로젝트의 전체 흐름에 대한 이해
+[Back to Table of Conte니다.
+- 텍스트 데이터 전처리 과정의 중요성
+- 기준 모델과 신경망 모델의 성능 차이
+- 머신러닝 프로젝트의 전체 흐름에 대한 이해
 
 이를 통해 수업에서 배운 이론과
-실제 데이터 분석 문제 사이의 연결성을 명확히 확인할 수 있었다.
+실제 데이터 분석 문제 사이의 연결성을 명확히 확인할 수 있었습니다.
 
 ## 8. Technologies Used
 
