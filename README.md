@@ -1,38 +1,68 @@
-# MAT3123
+# Movie Review Sentiment Analysis
 
-🎬 영화 리뷰 감성 분석
+NSMC 데이터를 활용한 PyTorch 기반 감성 분류 시스템
 
-NSMC 데이터를 활용한 PyTorch 기반 감성 분류
+##Table of Contents
 
-1. 프로젝트 개요
+1. [Motivation](#motivation)
 
-본 프로젝트는 수업 시간에 배운 머신러닝 및 딥러닝 기법을 실제 텍스트 데이터에 적용하여
-영화 리뷰가 긍정적인지 또는 부정적인지 분류하는 감성 분석 모델을 설계하는 것을 목표로 한다.
+2. [Data Acquisition](#data-acquisition)
 
-단순히 분류기를 구현하는 것에 그치지 않고,
-데이터 전처리부터 모델 설계, 결과 분석까지
-머신러닝 프로젝트의 전체 파이프라인에 대한 이해를 보여주는 데 목적이 있다.
+3. [Preprocessing](#preprocessing)
 
-2. 데이터셋
+4. [Model](#model)
 
-네이버 영화 리뷰 감성 데이터 (Naver Sentiment Movie Corpus, NSMC)
+5. [Performance](#performance)
 
-약 20만 개의 한국어 영화 리뷰로 구성
+6. [Project Structure](#project-structure)
 
-각 리뷰는 다음과 같은 레이블을 가짐
+7. [Conclusion](#conclusion)
 
-1: 긍정
+8. [Technologies Used](#technologies-used)
 
-0: 부정
+## 1. Motivation
 
-본 프로젝트에서는 실험 설계를 위해
-전체 데이터 중 일부를 샘플링하여 사용하였다.
+[Back to Table of Contents](#back-to-table-of-contents)
 
-3. 데이터 전처리
+본 프로젝트는 수업 시간에 배운 머신러닝 및 딥러닝 이론을
+실제 텍스트 데이터에 적용해 보기 위해 시작되었다.
 
-다음과 같은 전처리 과정을 수행하였다.
+영화 리뷰와 같이 비정형적인 자연어 데이터에 대해
+전통적인 머신러닝 모델과 신경망 모델이
+어떻게 서로 다른 성능을 보이는지를 비교하고,
+텍스트 분류 문제의 전체 처리 과정을 이해하는 것을 목표로 한다.
 
-Pandas를 이용한 데이터 로드 및 정제
+이를 통해 이론으로 학습한 개념이
+실제 데이터 분석 문제에서 어떻게 활용되는지를 확인하고자 한다.
+
+## 2. Data Acquisition
+
+[Back to Table of Contents](#back-to-table-of-contents)
+
+본 프로젝트에서는 **네이버 영화 리뷰 감성 데이터(NSMC)**를 사용하였다.
+
+데이터의 주요 특징은 다음과 같다.
+
+약 20만 개의 한국어 영화 리뷰
+
+각 리뷰는 감성 레이블을 가짐
+
+1: 긍정 리뷰
+
+0: 부정 리뷰
+
+데이터는 CSV 형식으로 제공되며,
+본 프로젝트에서는 전체 데이터 중 일부를 샘플링하여 실험에 활용하였다.
+
+Note: 데이터 크기 문제로 인해 GitHub에는 소량의 샘플 데이터만 포함되어 있다.
+
+## 3. Preprocessing
+
+[Back to Table of Contents](#back-to-table-of-contents)
+
+텍스트 데이터를 모델에 입력하기 위해 다음과 같은 전처리 과정을 수행하였다.
+
+Pandas를 이용한 데이터 로드
 
 결측치 제거
 
@@ -40,21 +70,28 @@ TF-IDF 벡터화를 통한 텍스트의 수치화
 
 어휘 수 제한을 통한 차원 축소
 
-이를 통해 텍스트 데이터를
-전통적인 머신러닝 모델 및 신경망 모델에서 처리할 수 있도록 하였다.
+이를 통해 자연어 형태의 리뷰 데이터를
+머신러닝 및 딥러닝 모델에서 처리 가능한 입력 형태로 변환하였다.
 
-4. 모델
-Baseline 모델
+## 4. Model
+
+[Back to Table of Contents](#back-to-table-of-contents)
+
+본 프로젝트에서는 두 가지 모델을 사용하여 성능을 비교하였다.
+
+Baseline Model
 
 Logistic Regression
 
-딥러닝 모델과의 성능 비교를 위한 기준 모델로 사용
+텍스트 분류 문제에서의 기본적인 기준 모델로 사용
 
-딥러닝 모델
+이후 딥러닝 모델과의 성능 비교를 위한 기준선 역할
+
+Deep Learning Model
 
 PyTorch 기반 다층 퍼셉트론(MLP)
 
-모델 구조
+모델 구조는 다음과 같다.
 
 입력층: TF-IDF 특징 벡터
 
@@ -64,38 +101,56 @@ PyTorch 기반 다층 퍼셉트론(MLP)
 
 해당 모델은 수업에서 다룬 신경망 개념을 반영하여 설계되었다.
 
-5. 실험 결과
+## 5. Performance
+
+[Back to Table of Contents](#back-to-table-of-contents)
+
+모델의 성능은 정확도를 기준으로 비교하였다.
+
 모델	정확도
 Logistic Regression	약 83%
 PyTorch MLP	약 86%
 
-MLP 모델이 기준 모델보다 더 높은 정확도를 보였으며,
-이는 텍스트 데이터의 비선형적 특성을 신경망이 더 잘 학습했기 때문으로 해석할 수 있다.
+실험 결과, MLP 모델이 기준 모델보다 더 높은 정확도를 보였다.
+이는 텍스트 데이터의 비선형적인 특성을 신경망이 효과적으로 학습했기 때문으로 해석할 수 있다.
 
-또한 Confusion Matrix 분석 결과,
+또한 Confusion Matrix 분석을 통해
 약한 부정 표현이 포함된 리뷰에서 오분류가 상대적으로 많이 발생함을 확인하였다.
 
-6. 프로젝트 구조
-.
-├── preprocess.py   # 텍스트 전처리 및 벡터화
-├── model.py        # PyTorch MLP 모델 정의
-├── train.py        # 학습 파이프라인
-├── README.md
-└── data/
+본 프로젝트는 정량적 성능 향상뿐만 아니라
+모델 간 특성 차이를 이해하는 데 의의를 둔다.
 
-7. 결론
+## 6. Project Structure
 
-본 프로젝트를 통해 다음과 같은 학습 성과를 얻을 수 있었다.
+[Back to Table of Contents](#back-to-table-of-contents)
 
-이론으로 배운 머신러닝 개념을 실제 데이터에 적용
+bash
+  .
+  ├── preprocess.py   # 텍스트 전처리 및 벡터화
+  ├── model.py        # PyTorch MLP 모델 정의
+  ├── train.py        # 모델 학습 파이프라인
+  ├── README.md
+  └── data/
+      └── nsmc_sample.csv
 
-기준 모델과 신경망 모델의 성능 비교 및 분석
+## 7. Conclusion
 
-분류 모델의 장단점에 대한 이해
+[Back to Table of Contents](#back-to-table-of-contents)
 
-이를 통해 수업에서 다룬 이론과 실제 응용 간의 연결성을 명확히 확인할 수 있었다.
+본 프로젝트를 통해 다음과 같은 점을 학습할 수 있었다.
 
-8. 사용 기술
+텍스트 데이터 전처리 과정의 중요성
+
+기준 모델과 신경망 모델의 성능 차이
+
+머신러닝 프로젝트의 전체 흐름에 대한 이해
+
+이를 통해 수업에서 배운 이론과
+실제 데이터 분석 문제 사이의 연결성을 명확히 확인할 수 있었다.
+
+## 8. Technologies Used
+
+[Back to Table of Contents](#back-to-table-of-contents)
 
 Python
 
