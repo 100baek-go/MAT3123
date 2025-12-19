@@ -2,7 +2,6 @@
 PyTorch 기반 MLP 감성 분류 모델
 """
 
-import torch
 import torch.nn as nn
 
 class SentimentMLP(nn.Module):
