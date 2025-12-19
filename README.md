@@ -2,7 +2,7 @@
 
 NSMC 데이터를 활용한 PyTorch 기반 감성 분류 시스템
 
-##Table of Contents
+## Table of Contents
 
 1. [Motivation](#motivation)
 
@@ -125,13 +125,13 @@ PyTorch MLP	약 86%
 [Back to Table of Contents](#back-to-table-of-contents)
 
 bash
-  .
-  ├── preprocess.py   # 텍스트 전처리 및 벡터화
-  ├── model.py        # PyTorch MLP 모델 정의
-  ├── train.py        # 모델 학습 파이프라인
-  ├── README.md
-  └── data/
-      └── nsmc_sample.csv
+    .
+    ├── preprocess.py   # 텍스트 전처리 및 벡터화
+    ├── model.py        # PyTorch MLP 모델 정의
+    ├── train.py        # 모델 학습 파이프라인
+    ├── README.md
+    └── data/
+        └── nsmc_sample.csv
 
 ## 7. Conclusion
 
